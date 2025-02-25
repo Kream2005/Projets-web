@@ -1,0 +1,146 @@
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(skyblue,lightgreen);
+    color: #333;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.container {
+    display: flex;
+    width: 65%;
+    margin: 20px auto;
+    background: white;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar {
+    width: 30%;
+    background: #2f4f41;  
+    color: white;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.myimage img {
+    width: 80%;
+    margin: 0 auto;
+    border: 3px solid white;
+}
+
+.contact {
+    margin-top: 15px;
+}
+
+.contact h3,
+.skills h3,
+.languages h3,
+.interets h3 {
+    border-bottom: 2px solid white;
+    padding-bottom: 5px;
+    margin-bottom: 15px;
+}
+
+.contact a {
+    color: #b0e0d3; 
+    text-decoration: none;
+}
+
+.contact a:hover {
+    text-decoration: underline;
+}
+
+.sidebar ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.sidebar li {
+    margin-bottom: 8px;
+    font-size: 14px;
+}
+
+.main-content {
+    width: 70%;
+    padding: 30px;
+    background: #fdfdf9;  
+}
+
+header h1 {
+    color: #2f4f41;
+    font-size: 30px;
+    margin-bottom: 5px;
+}
+
+.main-content #eng {
+    color: #3f6555;
+}
+
+.main-content h2 {
+    color: #3f6555;
+    border-bottom: 2px solid #2f4f41;
+    padding-bottom: 5px;
+    margin-bottom: 15px;
+    font-size: 20px;
+}
+
+.main-content section {
+    margin-bottom: 28px;
+}
+
+.education h3 {
+    font-size: 16px;
+    color: #212725;
+    margin-bottom: 5px;
+}
+
+.tech ul {
+    list-style: none;
+    padding: 0;
+}
+
+.tech li {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    margin-bottom: 8px;
+}
+
+.tech img {
+    margin-right: 10px;
+}
+.main-content a{
+    color : #062f7d;
+    text-decoration: none;
+}
+
+.main-content a:hover {
+    text-decoration: underline;
+}
+
+
+.certifications img {
+    vertical-align: middle;
+}
+
+@media screen and (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        width: 95%;
+    }
+
+    .sidebar {
+        width: 100%;
+        text-align: center;
+    }
+
+    .main-content {
+        width: 100%;
+    }
+
+    .myimage img {
+        width: 50%;
+    }
+}

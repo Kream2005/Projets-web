@@ -1,0 +1,111 @@
+body {
+    background-image: url("/images/backg1.webp");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    font-family: "Poppins", sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.container {
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: 0px 0px 10px red;
+    border-radius: 12px;
+    padding: 25px;
+    width: 500px;
+    text-align: center;
+}
+
+h2 {
+    font-size: 24px;
+    color: black;
+    margin-bottom: 20px;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    margin-bottom: 15px;
+}
+
+.input-group label {
+    font-size: 16px;
+    font-weight: 600;
+    color: black;
+    margin-bottom: 5px;
+}
+
+.input-group input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 15px;
+    transition: all 0.3s ease;
+}
+
+.input-group input:focus {
+    border-color: #007BFF;
+    outline: none;
+    box-shadow: 0px 0px 5px rgba(0, 123, 255, 0.5);
+}
+
+.radio-group {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.radio-group input {
+    margin-right: 5px;
+}
+
+.button-group {
+    display: flex;
+    justify-content: space-between;
+}
+
+.button-group input {
+    width: 48%;
+    padding: 10px;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.button-group input[type="submit"] {
+    background-color: #007BFF;
+    color: white;
+}
+
+.button-group input[type="reset"] {
+    background-color: #FF3B30;
+    color: white;
+}
+
+.button-group input:hover {
+    opacity: 0.8;
+}
+
+@media (max-width: 500px) {
+    .container {
+        width: 90%;
+        padding: 15px;
+    }
+
+    .button-group {
+        flex-direction: column;
+    }
+
+    .button-group input {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+}
