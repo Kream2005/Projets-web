@@ -3,31 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Pomodoro Timer</title>
     <link rel="stylesheet" href="pomodoro.css">
 </head>
 <body>
-    <img src="">
-    <div class="container" >
-        <div class="title-elements">
-        <h1 id="firsth1">Pomodoro timer</h1>
-        <h2 id="firsth2">Master Your Time, Master Your Life</h2>
-        <p class="timer" id="timer">25:00</p>
+
+    <p class="timer" id="timer">25:00</p>
+
+    <div class="container">
+        <h1>Pomodoro Timer</h1>
+        <h2>Master Your Time, Master Your Life</h2>
+
         <div class="buttons">
             <button id="start">Start</button>
             <button id="stop">Stop</button>
             <button id="reset">Reset</button>
         </div>    
+
+        <div class="custom-time">
+            <input type="number" id="work-time" value="25" placeholder="Work Time">
+            <input type="number" id="break-time" value="5" placeholder="Break Time">
+            <button id="set-time">Set Time</button>
+        </div>
+
+        <div class="task-manager">
+            <input type="text" id="task-input" placeholder="Add a task">
+            <button id="add-task">Add Task</button>
+        </div>
+
+        <ul id="task-list"></ul>  
     </div>
-    <div id="popup" class="popup">
-        <div class="popup-content">
-            <img src="/images/areuready.gif" alt="Ready?" class="popup-image">
-            <p>Are you all set?</p>
-            <button id="confirm-yes">Yes</button>
-            <button id="confirm-no">No</button>
+
+    <div id="confirmation" class="hidden">
+        <img src="images/areuready.gif" alt="Are You Ready?" id="gif">
+        <div class="confirmation-bar">
+            <button id="yes">Yes</button>
+            <button id="no">No</button>
         </div>
     </div>
-    
+
     <script src="pomodoro.js"></script>
 </body>
 </html>
