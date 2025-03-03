@@ -1,121 +1,136 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap');
+
 body {
-    margin: 0;
-    padding: 0;
     font-family: 'Poppins', sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-color: #0f0f0f;
-    color: #fff;
-}
-
-.container {
+    background: linear-gradient(135deg, #1a1a2e, #16213e);
+    color: white;
     text-align: center;
-    background: rgba(255, 255, 255, 0.1);
-    padding: 50px;
-    border-radius: 20px;
-    box-shadow: 0 0 20px rgba(255, 0, 0, 0.5);
-    backdrop-filter: blur(10px);
-}
-
-h1 {
-    font-size: 2.5rem;
-    margin-bottom: 10px;
-    color: #ff4d4d;
-    text-shadow: 0px 0px 10px red;
-}
-
-h2 {
-    font-size: 1.5rem;
-    margin-bottom: 20px;
-    color: #fff;
-    opacity: 0.9;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
 }
 
 .timer {
-    font-size: 3rem;
+    font-size: 4rem;
     font-weight: bold;
-    background: #222;
-    padding: 20px 40px;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 15px;
     border-radius: 15px;
-    display: inline-block;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
     margin-bottom: 20px;
-    transition: 0.3s;
-    box-shadow: 0 0 15px rgba(255, 0, 0, 0.7);
 }
 
-.buttons button {
+.container {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(255, 0, 0, 0.5);
+    width: 400px;
+}
+
+.buttons button, .custom-time button, .task-manager button {
     font-size: 1rem;
-    font-weight: bold;
-    margin: 10px;
-    padding: 12px 25px;
+    margin: 5px;
+    padding: 10px 15px;
     border: none;
-    border-radius: 10px;
+    border-radius: 8px;
     cursor: pointer;
-    transition: all 0.3s ease-in-out;
-    box-shadow: 0 0 10px rgba(255, 0, 0, 0.7);
+    transition: 0.3s ease;
 }
 
-#start {
-    background: #28a745;
-    color: white;
-}
+#start { background: #28a745; color: white; }
+#stop { background: #dc3545; color: white; }
+#reset { background: #007bff; color: white; }
+#add-task { background: #ff4d4d; color: white; }
+#set-time { background: #ffa500; color: white; }
 
-#stop {
-    background: #dc3545;
-    color: white;
-}
-
-#Reset {
-    background: #007bff;
-    color: white;
-}
-
-.buttons button:hover {
+button:hover {
     transform: scale(1.1);
-    box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
 }
 
-@keyframes pulse {
-    0% { transform: scale(1); box-shadow: 0 0 15px rgba(255, 0, 0, 0.7); }
-    50% { transform: scale(1.05); box-shadow: 0 0 25px rgba(255, 0, 0, 0.9); }
-    100% { transform: scale(1); box-shadow: 0 0 15px rgba(255, 0, 0, 0.7); }
+.task-manager input {
+    width: 200px;
+    padding: 8px;
+    border-radius: 5px;
+    border: none;
+    box-shadow: 0 0 5px rgba(255, 0, 0, 0.5);
 }
 
-.running {
-    animation: pulse 1.5s infinite;
+ul {
+    list-style: none;
+    padding: 0;
+    margin-top: 15px;
 }
 
+li {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 10px;
+    margin: 5px 0;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    transition: 0.3s;
+}
 
-.popup {
+li:hover {
+    background: rgba(255, 0, 0, 0.3);
+}
+
+li button {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    padding: 5px;
+    cursor: pointer;
+    border-radius: 3px;
+}
+
+.hidden {
     display: none;
+}
+
+#confirmation {
     position: fixed;
-    top: 230px;
-    left: 700px;
+    top: 50%;
+    left: 50%;
     transform: translate(-50%, -50%);
     background: rgba(0, 0, 0, 0.8);
     padding: 20px;
     border-radius: 10px;
+    box-shadow: 0 0 15px rgba(255, 0, 0, 0.5);
     text-align: center;
-    z-index: 1000;
+}
+
+#gif {
     width: 300px;
-}
-
-.popup-content {
-    background: white;
-    padding: 20px;
-    border-radius: 8px;
-}
-
-.popup-image {
-    width: 250px;
     height: auto;
     margin-bottom: 10px;
 }
 
-.popup button {
-    margin: 5px;
-    padding: 8px 12px;
+.confirmation-bar {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.confirmation-bar button {
+    font-size: 1rem;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
     cursor: pointer;
+    transition: 0.3s;
+}
+
+#yes { background: #28a745; color: white; }
+#no { background: #dc3545; color: white; }
+
+.confirmation-bar button:hover {
+    transform: scale(1.1);
 }
