@@ -1,12 +1,18 @@
-const startEl = document.getElementById("start");
-const resetEl = document.getElementById("reset");
-const stopEl = document.getElementById("stop");
 const timerEl = document.getElementById("timer");
-const popup = document.getElementById("popup");
-const confirmYes = document.getElementById("confirm-yes");
-const confirmNo = document.getElementById("confirm-no");
+const startEl = document.getElementById("start");
+const stopEl = document.getElementById("stop");
+const resetEl = document.getElementById("reset");
+const workTimeEl = document.getElementById("work-time");
+const breakTimeEl = document.getElementById("break-time");
+const setTimeEl = document.getElementById("set-time");
+const taskInput = document.getElementById("task-input");
+const addTaskBtn = document.getElementById("add-task");
+const taskList = document.getElementById("task-list");
+const confirmation = document.getElementById("confirmation");
+const yesBtn = document.getElementById("yes");
+const noBtn = document.getElementById("no");
 
-let interval;
+let interval = null;
 let timeleft = 1500;
 let isBreak = false;
 
@@ -16,8 +22,17 @@ function updateTimer() {
     timerEl.innerHTML = `${minutes.toString().padStart(2, "0")}:${seconds.toString().padStart(2, "0")}`;
 }
 
-function startTimer() {
-    if (interval) return;
+// 🎯 Show confirmation when Start is clicked
+startEl.addEventListener("click", () => {
+    confirmation.classList.remove("hidden");
+});
+
+// ✅ If Yes is clicked, start timer
+yesBtn.addEventListener("click", () => {
+    confirmation.classList.add("hidden");
+
+    if (interval) return; // Avoid multiple intervals
+
     interval = setInterval(() => {
         if (timeleft > 0) {
             timeleft--;
@@ -25,48 +40,57 @@ function startTimer() {
         } else {
             clearInterval(interval);
             interval = null;
-            if (!isBreak) {
-                alert("Time's up! Take a 5 min break.");
-                timeleft = 300; 
-                isBreak = true;
-            } else {
-                alert("Break over! Back to work.");
-                timeleft = 1500; 
-                isBreak = false;
-            }
+            isBreak = !isBreak;
+            timeleft = (isBreak ? parseInt(breakTimeEl.value) : parseInt(workTimeEl.value)) * 60;
+            alert(isBreak ? "Break Time! Relax." : "Work Time! Stay Focused.");
             updateTimer();
-            startTimer(); 
+            startEl.click(); // Show confirmation again
         }
     }, 1000);
-}
-
-startEl.addEventListener("click", () => {
-    popup.style.display = "block";
 });
 
-confirmYes.addEventListener("click", () => {
-    popup.style.display = "none";
-    startTimer();
+// ❌ If No is clicked, close confirmation
+noBtn.addEventListener("click", () => {
+    confirmation.classList.add("hidden");
 });
 
-confirmNo.addEventListener("click", () => {
-    popup.style.display = "none";
+// 🛑 Stop Timer
+stopEl.addEventListener("click", () => {
+    clearInterval(interval);
+    interval = null;
 });
 
-function resetTimer() {
+// 🔄 Reset Timer
+resetEl.addEventListener("click", () => {
     clearInterval(interval);
     interval = null;
     timeleft = 1500;
     isBreak = false;
     updateTimer();
-}
+});
 
-function stopTimer() {
-    clearInterval(interval);
-    interval = null;
-}
+// ⏳ Set Custom Time
+setTimeEl.addEventListener("click", () => {
+    timeleft = parseInt(workTimeEl.value) * 60;
+    updateTimer();
+});
 
-resetEl.addEventListener("click", resetTimer);
-stopEl.addEventListener("click", stopTimer);
+// ✅ Add Task
+addTaskBtn.addEventListener("click", () => {
+    if (taskInput.value.trim() === "") return;
+
+    let li = document.createElement("li");
+    li.textContent = taskInput.value;
+    let deleteBtn = document.createElement("button");
+    deleteBtn.textContent = "❌";
+    
+    deleteBtn.addEventListener("click", () => {
+        li.remove();
+    });
+
+    li.appendChild(deleteBtn);
+    taskList.appendChild(li);
+    taskInput.value = "";
+});
 
 updateTimer();
