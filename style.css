@@ -10,7 +10,7 @@ body {
     background-size: cover;
 }
 
-html, body {
+body {
     overflow-x: hidden;
     overflow-y: auto;
 }
