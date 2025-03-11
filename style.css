@@ -10,9 +10,10 @@ body {
     background-size: cover;
 }
 
+
 body {
     overflow-x: hidden;
-    overflow-y: auto;
+    overflow-y: scroll;
 }
 
 
@@ -112,7 +113,7 @@ html {
     width: 600px;  
     margin-top: 0px;  
     margin-left: 60%;  
-    text-align: left;  /
+    text-align: left;  
 }
 
 
@@ -391,7 +392,7 @@ html {
     
 }
 
-.contact-name {
+.contact .contact-container .contact-name   {
     font-size: 20px;
     font-weight: bold;
     color: #000;
@@ -400,6 +401,7 @@ html {
 
 .contact .contact-container a {
     transition: transform 0.3s ease, box-shadow 0.3s ease; 
+    text-decoration: none;
 }
 
 .contact .contact-container a:hover {
