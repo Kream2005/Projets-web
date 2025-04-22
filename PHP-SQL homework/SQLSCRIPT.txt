@@ -1,0 +1,7 @@
+create database exercicephp ;
+create table users(
+	userid int auto_increment,
+    nom varchar(30),
+    email varchar(40),
+    primary key(userid)
+    )
