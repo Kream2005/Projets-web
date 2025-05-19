@@ -1,0 +1,3 @@
+The Android Studio TP is located inside of Famakan_Abdelkarim folder
+
+it is a shared work between Abdelkarim Ameur and Famakan Camara
